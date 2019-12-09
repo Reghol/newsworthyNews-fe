@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Router } from "@reach/router";
+import Header from "./Components/Header";
+import Sidebar from "./Components/Sidebar";
+import WrongRoute from "./Components/WrongRoute";
+import ArticlesList from "./Components/ArticlesList";
+import "./App.css";
+class App extends Component {
+  state = {};
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <div className="header">
+          <Header></Header>
+        </div>
+        <div className="mainBody">
+          <div className="sidebar">
+            <Sidebar></Sidebar>
+          </div>
+
+          <div className="main">
+            <Router>
+              <WrongRoute default></WrongRoute>
+              <ArticlesList path="/" />
+              {/* <ArticlesList path="/articles" />
+              <ArticlesList path="/topic/:topic" />
+              <SingleArticle path="/articles/:article_id" /> */}
+            </Router>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

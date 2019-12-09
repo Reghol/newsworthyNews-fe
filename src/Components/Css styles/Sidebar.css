@@ -1,0 +1,23 @@
+.topics-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 20px;
+  height: 100%;
+}
+.topic-link {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  background-color: #333333;
+  margin: 6px;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.topics-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+}

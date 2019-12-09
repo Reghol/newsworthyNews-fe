@@ -1,0 +1,6 @@
+.headerContainer {
+  display: flex;
+  color: rgb(199, 167, 167);
+  flex-direction: row;
+  justify-content: center;
+}
