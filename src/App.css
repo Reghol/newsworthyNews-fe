@@ -1,5 +1,6 @@
-.App {
-}
+/* .App {
+  
+} */
 
 .articlesListMainLayout {
   padding: 20px 0;
@@ -8,6 +9,9 @@
 .mainBody {
   display: flex;
   flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
 
 .sidebar {
@@ -19,15 +23,4 @@
 
 .main {
   flex: 6;
-}
-
-@media only screen and (min-width: 400px) {
-  .sidebar {
-    width: 50%;
-    float: left;
-  }
-  .main {
-    width: 50%;
-    float: left;
-  }
 }

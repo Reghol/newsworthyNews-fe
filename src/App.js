@@ -4,6 +4,7 @@ import Header from "./Components/Header";
 import Sidebar from "./Components/Sidebar";
 import WrongRoute from "./Components/WrongRoute";
 import ArticlesList from "./Components/ArticlesList";
+import SingleArticle from "./Components/SingleArticle";
 import "./App.css";
 class App extends Component {
   state = {};
@@ -23,9 +24,10 @@ class App extends Component {
             <Router>
               <WrongRoute default></WrongRoute>
               <ArticlesList path="/" />
-              {/* <ArticlesList path="/articles" />
+              <ArticlesList path="/articles" />
               <ArticlesList path="/topic/:topic" />
-              <SingleArticle path="/articles/:article_id" /> */}
+
+              <SingleArticle path="/articles/:article_id" />
             </Router>
           </div>
         </div>

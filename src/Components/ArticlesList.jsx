@@ -15,6 +15,12 @@ class ArticlesList extends Component {
     this.fetchArticles();
   }
 
+  componentDidUpdate = prevProps => {
+    if (this.props !== prevProps) {
+      this.fetchArticles();
+    }
+  };
+
   fetchArticles = () => {
     const { topic, username, limit, sort } = this.props;
     let { sort_by, order } = this.state;
