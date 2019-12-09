@@ -15,10 +15,26 @@ class ArticlesList extends Component {
     this.fetchArticles();
   }
 
-  componentDidUpdate = prevProps => {
+  componentDidUpdate = (prevProps, prevState) => {
+    const { page, sort_by, order } = this.state;
     if (this.props !== prevProps) {
       this.fetchArticles();
     }
+    if (
+      prevState.page !== page ||
+      prevState.sort_by !== sort_by ||
+      prevState.order !== order
+    ) {
+      this.fetchArticles();
+    }
+  };
+
+  changeSortBy = sort_by => {
+    this.setState({ sort_by: sort_by });
+  };
+
+  changeOrder = order => {
+    this.setState({ order: order });
   };
 
   fetchArticles = () => {
@@ -39,7 +55,11 @@ class ArticlesList extends Component {
     return (
       <div className="articlesListMainLayout">
         <h1> Articles</h1>
-        <SearchBar></SearchBar>
+        <SearchBar
+          articles={articles}
+          changeSortBy={this.changeSortBy}
+          changeOrder={this.changeOrder}
+        ></SearchBar>
         {articles.map(article => {
           return <ArticleCard key={article.article_id} article={article} />;
         })}

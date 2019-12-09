@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../Utils/api";
+import CommentCard from "./CommentCard";
+import "./Css styles/SingleArticle.css";
 
 class SingleArticle extends Component {
   state = {
@@ -25,7 +27,6 @@ class SingleArticle extends Component {
   };
 
   render() {
-    console.log(this.state.comments);
     const { article, isLoading, comments, isVisible } = this.state;
 
     if (isLoading)
@@ -38,15 +39,25 @@ class SingleArticle extends Component {
       <div className="article-wrapper">
         <div className="article-header">
           <h1>{article.title}</h1>
-          <h2>{article.author}</h2>
-        </div>
-        <div className="votes-wrapper">
-          <p>Votes Up and Down</p>
-        </div>
-        <div className="article-body">
-          <p>{article.body}</p>
+          <h2> by {article.author}</h2>
+          <div className="votes-wrapper">
+            <p>Votes Up and Down</p>
+          </div>
+          <div className="articles-body">
+            <p>{article.body}</p>
+          </div>
         </div>
         <div className="votes-wrapper">{}</div>
+        <div className="comments-wrapper">
+          {comments.map(comment => {
+            return (
+              <CommentCard
+                key={comment.comment_id}
+                comment={comment}
+              ></CommentCard>
+            );
+          })}
+        </div>
       </div>
     );
   }
