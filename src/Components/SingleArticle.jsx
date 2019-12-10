@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import * as api from "../Utils/api";
 import CommentCard from "./CommentCard";
 import "./Css styles/SingleArticle.css";
+import PostComment from "./PostComment";
+import ErrorMessage from "./ErrorMessage";
 
 class SingleArticle extends Component {
   state = {
@@ -9,16 +11,26 @@ class SingleArticle extends Component {
     article: {},
     isVisible: false,
     comments: [],
-    username: null
+    username: null,
+    err: null
   };
   componentDidMount = () => {
     const { article_id } = this.props;
     Promise.all([
       api.getArticleById(article_id),
       api.getCommentsByArticleId(article_id)
-    ]).then(([{ article }, { comments }]) => {
-      this.setState({ article, comments, isLoading: false });
-    });
+    ])
+      .then(([{ article }, { comments }]) => {
+        this.setState({ article, comments, isLoading: false });
+      })
+      .catch(err => {
+        this.setState({
+          err: {
+            status: err.response.status,
+            msg: err.response.data.msg
+          }
+        });
+      });
   };
 
   handleClickShowHide = () => {
@@ -42,8 +54,8 @@ class SingleArticle extends Component {
   };
 
   render() {
-    const { article, isLoading, comments, username } = this.state;
-
+    const { article, isLoading, comments, username, err } = this.state;
+    if (err) return <ErrorMessage err={err} />;
     if (isLoading)
       return (
         <>
@@ -59,7 +71,15 @@ class SingleArticle extends Component {
             <p>{article.body}</p>
           </div>
         </div>
+        <div className="post-commentWrapper">
+          <PostComment
+            username={username}
+            addNewComment={this.addNewComment}
+            article_id={this.props.article_id}
+          ></PostComment>
+        </div>
         <div className="votes-wrapper">{}</div>
+
         <div className="comments-wrapper">
           {comments.map(comment => {
             return (
@@ -67,6 +87,7 @@ class SingleArticle extends Component {
                 key={comment.comment_id}
                 comment={comment}
                 deleteComment={this.deleteComment}
+                addNewComment={this.addNewComment}
               ></CommentCard>
             );
           })}

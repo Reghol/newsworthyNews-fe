@@ -10,7 +10,7 @@ export default function DeleteComment({ comment_id, deleteComment }) {
         deleteComment(comment_id);
       }}
     >
-      Expunge comment
+      Extirpate comment
     </button>
   );
 }
