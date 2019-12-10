@@ -2,16 +2,21 @@ import React, { Component } from "react";
 import SearchBar from "./SearchBar";
 import ArticleCard from "./ArticleCard";
 import * as api from "../Utils/api";
+import ErrorMessage from "./ErrorMessage";
 
 class ArticlesList extends Component {
   state = {
     articles: [],
     isLoading: true,
     sort_by: "created_at",
-    order: "desc"
+    order: "desc",
+    username: null,
+    err: null
   };
 
   componentDidMount() {
+    const { username } = this.props;
+    this.setState({ username });
     this.fetchArticles();
   }
 
@@ -47,14 +52,24 @@ class ArticlesList extends Component {
       .getAllArticles(topic, username, sort_by, limit, order)
       .then(({ articles }) => {
         this.setState({ articles, isLoading: false });
+      })
+      .catch(err => {
+        this.setState({
+          err: {
+            status: err.response.status,
+            msg: err.response.data.msg
+          }
+        });
       });
   };
-  render() {
-    const { articles } = this.state;
 
+  render() {
+    const { articles, err, isLoading, username } = this.state;
+    if (err) return <ErrorMessage err={err} />;
+    if (isLoading) return <p>loading...</p>;
     return (
       <div className="articlesListMainLayout">
-        <h1> Articles</h1>
+        <h1> Articles by {username}</h1>
         <SearchBar
           articles={articles}
           changeSortBy={this.changeSortBy}

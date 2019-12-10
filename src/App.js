@@ -7,13 +7,20 @@ import ArticlesList from "./Components/ArticlesList";
 import SingleArticle from "./Components/SingleArticle";
 import "./App.css";
 class App extends Component {
-  state = {};
+  state = {
+    username: null
+  };
+
+  loginUser = username => {
+    this.setState({ username });
+  };
 
   render() {
+    const { username } = this.state;
     return (
       <div className="App">
         <div className="header">
-          <Header></Header>
+          <Header loginUser={this.loginUser} username={username}></Header>
         </div>
         <div className="mainBody">
           <div className="sidebar">
@@ -22,12 +29,12 @@ class App extends Component {
 
           <div className="main">
             <Router>
-              <WrongRoute default></WrongRoute>
-              <ArticlesList path="/" />
-              <ArticlesList path="/articles" />
-              <ArticlesList path="/topic/:topic" />
+              <ArticlesList path="/" username={username} />
+              <ArticlesList path="/articles" username={username} />
+              <ArticlesList path="/topic/:topic" username={username} />
 
-              <SingleArticle path="/articles/:article_id" />
+              <SingleArticle path="/articles/:article_id" username={username} />
+              <WrongRoute default></WrongRoute>
             </Router>
           </div>
         </div>

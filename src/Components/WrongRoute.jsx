@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 const WrongRoute = () => {
   return (
     <div>
-      <h3>Route not found</h3>
+      <h3>Route not found.</h3>
       <Link to="/">Home</Link>
     </div>
   );

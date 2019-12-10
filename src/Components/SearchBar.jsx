@@ -3,14 +3,11 @@ import React, { Component } from "react";
 class SearchBar extends Component {
   handleChange = event => {
     const { value } = event.target;
-
-    if (value === "asc" || "desc") {
+    if (value === "asc" || value === "desc") {
       const order = event.target.value;
       this.props.changeOrder(order);
     } else {
-      const sort_by = event.target.value;
-      console.log(sort_by);
-      this.props.changeSortBy(sort_by);
+      this.props.changeSortBy(value);
     }
   };
 
@@ -35,9 +32,13 @@ class SearchBar extends Component {
         </label>
         <label htmlFor="order">
           order :{" "}
-          <select onChange={this.handleChange} name="order" id="order">
-            <option value="asc">ascending</option>
-            <option value="desc">descending</option>
+          <select onChange={this.handleChange} name="order">
+            <option className="formContent" value="asc">
+              ascending
+            </option>
+            <option className="formContent" value="desc">
+              descending
+            </option>
           </select>
         </label>
       </form>

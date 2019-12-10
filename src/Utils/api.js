@@ -59,6 +59,12 @@ export const getAllUsers = async () => {
   });
 };
 
+export const getUserByUsername = async username => {
+  return await axios.get(`${baseURL}/users/${username}`).then(user => {
+    return user;
+  });
+};
+
 export const postCommentByArticleId = async (id, comment) => {
   return await axios
     .post(`${baseURL}/articles/${id}/comments`, comment)

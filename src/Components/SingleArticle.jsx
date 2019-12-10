@@ -8,7 +8,8 @@ class SingleArticle extends Component {
     isLoading: true,
     article: {},
     isVisible: false,
-    comments: []
+    comments: [],
+    username: null
   };
   componentDidMount = () => {
     const { article_id } = this.props;
@@ -27,7 +28,7 @@ class SingleArticle extends Component {
   };
 
   render() {
-    const { article, isLoading, comments, isVisible } = this.state;
+    const { article, isLoading, comments } = this.state;
 
     if (isLoading)
       return (
