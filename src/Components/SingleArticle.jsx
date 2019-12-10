@@ -27,8 +27,22 @@ class SingleArticle extends Component {
     });
   };
 
+  addNewComment = comment => {
+    this.setState(currState => {
+      return { comments: [comment, ...currState.comments] };
+    });
+  };
+
+  deleteComment = comment_id => {
+    api.deleteCommentById(comment_id);
+    const newState = this.state.comments.filter(comment => {
+      return comment.comment_id !== comment_id;
+    });
+    this.setState({ comments: newState });
+  };
+
   render() {
-    const { article, isLoading, comments } = this.state;
+    const { article, isLoading, comments, username } = this.state;
 
     if (isLoading)
       return (
@@ -41,9 +55,6 @@ class SingleArticle extends Component {
         <div className="article-header">
           <h1>{article.title}</h1>
           <h2> by {article.author}</h2>
-          <div className="votes-wrapper">
-            <p>Votes Up and Down</p>
-          </div>
           <div className="articles-body">
             <p>{article.body}</p>
           </div>
@@ -55,6 +66,7 @@ class SingleArticle extends Component {
               <CommentCard
                 key={comment.comment_id}
                 comment={comment}
+                deleteComment={this.deleteComment}
               ></CommentCard>
             );
           })}
