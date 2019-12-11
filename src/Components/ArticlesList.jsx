@@ -43,13 +43,13 @@ class ArticlesList extends Component {
   };
 
   fetchArticles = () => {
-    const { topic, username, limit, sort } = this.props;
+    const { topic, limit, sort, username } = this.props;
     let { sort_by, order } = this.state;
     if (sort) {
       sort_by = sort;
     }
     api
-      .getAllArticles(topic, username, sort_by, limit, order)
+      .getAllArticles(topic, sort_by, limit, order)
       .then(({ articles }) => {
         this.setState({ articles, isLoading: false });
       })
@@ -64,12 +64,12 @@ class ArticlesList extends Component {
   };
 
   render() {
-    const { articles, err, isLoading, username } = this.state;
+    const { articles, err, isLoading } = this.state;
     if (err) return <ErrorMessage err={err} />;
     if (isLoading) return <p>loading...</p>;
     return (
       <div className="articlesListMainLayout">
-        <h1> Articles by {username}</h1>
+        <h1> Articles</h1>
         <SearchBar
           articles={articles}
           changeSortBy={this.changeSortBy}

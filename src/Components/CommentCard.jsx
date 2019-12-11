@@ -9,15 +9,17 @@ const CommentCard = props => {
     <div className="comment-wrapper">
       <h4>author: {comment.author}</h4>
       <p className="comment-body">{comment.body}</p>
-      <DeleteComment
-        comment_id={comment.comment_id}
-        deleteComment={props.deleteComment}
-      ></DeleteComment>
+      {username === comment.author ? (
+        <DeleteComment
+          comment_id={comment.comment_id}
+          deleteComment={props.deleteComment}
+        ></DeleteComment>
+      ) : null}
       <p className="comment-date">
         {new Date(comment.created_at).toLocaleString()}
       </p>
       <Votes
-        type="comment"
+        type="comments"
         id={comment.comment_id}
         votes={comment.votes}
         username={username}

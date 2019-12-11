@@ -1,6 +1,6 @@
-/* .App {
-  
-} */
+.App {
+  text-decoration: none !important;
+}
 
 .articlesListMainLayout {
   padding: 20px 0;

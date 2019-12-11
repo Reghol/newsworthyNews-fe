@@ -52,9 +52,10 @@ class Login extends React.Component {
               placeholder="username"
               autoComplete="off"
               required
-              value="jessjelly"
+              value="weegembump"
             />
           </label>
+          <h4>Password</h4>
           <label htmlFor="password">
             <input
               type="password"
@@ -62,6 +63,7 @@ class Login extends React.Component {
               onChange={this.handleChange}
               placeholder="password"
               value="password"
+              autoComplete="off"
             />
           </label>
           <button type="submit">Login</button>

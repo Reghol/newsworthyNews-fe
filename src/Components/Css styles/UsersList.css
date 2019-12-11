@@ -1,23 +1,21 @@
-.article-card {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+.users-card {
   color: rgb(199, 167, 167);
   display: flex;
-  flex-direction: row;
   margin: 15px 15px;
   border-radius: 10px;
   background-color: #333333;
-  text-decoration: none;
 }
 
-.article-card:hover {
+.users-card:hover {
   transform: scale(1.1);
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s;
 }
 
-.article-topic {
+.users-image {
   font-family: inherit;
   color: white;
   width: auto;
@@ -25,14 +23,9 @@
   padding: 10px;
   background-color: #9aa87f;
   border-right: 1px solid rgb(171, 171, 171);
-}
-.article-picture {
-  width: 20%;
   margin-left: auto;
 }
 
-@media only screen and (max-width: 500px) {
-  .article-picture {
-    display: none;
-  }
+.users-name {
+  color: white;
 }

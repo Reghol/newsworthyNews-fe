@@ -1,8 +1,15 @@
 import React from "react";
 import Modal from "react-modal";
 import { Link } from "@reach/router";
-// import "./Css styles/Header.css";
+import "./Css styles/Header.css";
 import Login from "./Login";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faUserAstronaut,
+  faSignInAlt,
+  faSignOutAlt
+} from "@fortawesome/free-solid-svg-icons";
 
 Modal.setAppElement("#root");
 
@@ -22,7 +29,7 @@ class Header extends React.Component {
     super();
     this.state = {
       username: null,
-      modalIsOpen: true
+      modalIsOpen: false
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -63,23 +70,27 @@ class Header extends React.Component {
       <>
         <div className="headerContainer">
           <div>
-            <h2>NC NEWS</h2>
+            <h2 className="title">NC NEWSWORTHY NEWS</h2>
           </div>
         </div>
 
         <div className="navbar">
-          <Link to="/" className="home">
-            <i className="fas fa-2x fa-home"></i>
+          <Link to="/" className="mainHeader">
+            <FontAwesomeIcon icon={faHome} />
+            Homepage
           </Link>
-          {!username && (
-            <i
-              onClick={this.clickLogin}
-              className="login fas fa-2x fa-sign-in-alt"
-            ></i>
-          )}
+          <Link to="/users" className="usersHeader">
+            <FontAwesomeIcon icon={faUserAstronaut} />
+            <i className="e">Users</i>
+          </Link>
+          <p onClick={this.clickLogin} className="logout">
+            <FontAwesomeIcon icon={faSignInAlt} />
+            Login
+          </p>
           {username && (
             <p className="logout" onClick={this.clickLogout}>
               {username} logout
+              <FontAwesomeIcon icon={faSignOutAlt} />
             </p>
           )}
         </div>

@@ -24,6 +24,37 @@ const ArticleCard = ({ article }) => {
           <p>{new Date(article.created_at).toLocaleString()}</p>
         </div>
       </div>
+      <div className="article-picture">
+        <div className=".img-fluid">
+          {article.topic === "cooking" && (
+            <img
+              style={{ height: "100%", width: "100%" }}
+              src={
+                "https://upload.wikimedia.org/wikipedia/commons/5/51/Food-pot-kitchen-cooking_%2823957429659%29.jpg"
+              }
+              alt="boiling pot"
+            />
+          )}
+          {article.topic === "football" && (
+            <img
+              style={{ height: "100%", width: "100%" }}
+              src={
+                "http://www.ultras-tifo.net/images/stories/2019/4/Lechia-Legia/Lechia-Legia-7.jpg"
+              }
+              alt="Lechia Gdansk Ultras"
+            />
+          )}
+          {article.topic === "coding" && (
+            <img
+              style={{ height: "100%", width: "100%" }}
+              src={
+                "https://upload.wikimedia.org/wikipedia/commons/2/2b/Matrix_coding.jpg"
+              }
+              alt="Coding is not like in the Matrix"
+            />
+          )}
+        </div>
+      </div>
     </Link>
   );
 };

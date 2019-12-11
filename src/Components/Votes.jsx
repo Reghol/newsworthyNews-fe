@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as api from "../Utils/api";
 
 export default class Votes extends Component {
-  state = { voteChange: 0 };
+  state = { voteChange: 0, err: null };
 
   handleClick = num => {
     const id = this.props.id;
@@ -10,7 +10,7 @@ export default class Votes extends Component {
 
     api.patchVotesById(id, num, type);
     this.setState(currentState => {
-      return { voteChange: currentState.voteChange + num };
+      return { voteChange: currentState.voteChange + num, err: null };
     });
   };
   render() {

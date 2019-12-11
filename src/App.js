@@ -6,9 +6,11 @@ import WrongRoute from "./Components/WrongRoute";
 import ArticlesList from "./Components/ArticlesList";
 import SingleArticle from "./Components/SingleArticle";
 import "./App.css";
+import UsersList from "./Components/UsersList";
 class App extends Component {
   state = {
-    username: null
+    username: null,
+    users: []
   };
 
   loginUser = username => {
@@ -34,6 +36,7 @@ class App extends Component {
               <ArticlesList path="/topic/:topic" username={username} />
 
               <SingleArticle path="/articles/:article_id" username={username} />
+              <UsersList path="/users" username={username} />
               <WrongRoute default></WrongRoute>
             </Router>
           </div>
