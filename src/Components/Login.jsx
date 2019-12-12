@@ -1,6 +1,6 @@
 import React from "react";
 import * as api from "../Utils/api";
-// import "./Css styles/Login.css";
+import "./Css styles/Login.css";
 class Login extends React.Component {
   state = {
     username: "jessjelly",
@@ -43,21 +43,23 @@ class Login extends React.Component {
     return (
       <div className="login-container">
         <h3>Login</h3>
-        <form onSubmit={this.handleSubmit}>
+        <form className="login-container form" onSubmit={this.handleSubmit}>
           <label htmlFor="username">
             <input
+              className="login-container input"
               id="username"
               type="text"
               onChange={this.handleChange}
               placeholder="username"
               autoComplete="off"
               required
-              value="weegembump"
+              value="jessjelly"
             />
           </label>
           <h4>Password</h4>
           <label htmlFor="password">
             <input
+              className="login-container input"
               type="password"
               id="password"
               onChange={this.handleChange}
@@ -66,7 +68,9 @@ class Login extends React.Component {
               autoComplete="off"
             />
           </label>
-          <button type="submit">Login</button>
+          <button className="login-container button" type="submit">
+            Login
+          </button>
           {err && <p>{err.msg}</p>}
         </form>
       </div>

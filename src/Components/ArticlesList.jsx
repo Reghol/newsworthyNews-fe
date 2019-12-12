@@ -11,24 +11,29 @@ class ArticlesList extends Component {
     sort_by: "created_at",
     order: "desc",
     username: null,
-    err: null
+    err: null,
+    page: 1,
+    limit: 10,
+    maxPage: Infinity
   };
 
   componentDidMount() {
     const { username } = this.props;
+    const { page, limit } = this.state;
     this.setState({ username });
-    this.fetchArticles();
+    this.fetchArticles(page, limit);
   }
 
   componentDidUpdate = (prevProps, prevState) => {
-    const { page, sort_by, order } = this.state;
+    const { page, sort_by, order, limit } = this.state;
     if (this.props !== prevProps) {
       this.fetchArticles();
     }
     if (
       prevState.page !== page ||
       prevState.sort_by !== sort_by ||
-      prevState.order !== order
+      prevState.order !== order ||
+      prevState.limit !== limit
     ) {
       this.fetchArticles();
     }
@@ -41,15 +46,17 @@ class ArticlesList extends Component {
   changeOrder = order => {
     this.setState({ order: order });
   };
-
+  changePage = button => {
+    this.setState(currentState => {
+      return { page: currentState.page + button };
+    });
+  };
   fetchArticles = () => {
-    const { topic, limit, sort, username } = this.props;
-    let { sort_by, order } = this.state;
-    if (sort) {
-      sort_by = sort;
-    }
+    const { topic } = this.props;
+    let { sort_by, order, page, limit } = this.state;
+
     api
-      .getAllArticles(topic, sort_by, limit, order)
+      .getAllArticles(topic, sort_by, page, order, limit)
       .then(({ articles }) => {
         this.setState({ articles, isLoading: false });
       })
@@ -64,17 +71,35 @@ class ArticlesList extends Component {
   };
 
   render() {
-    const { articles, err, isLoading } = this.state;
+    const { articles, err, isLoading, page, maxPage } = this.state;
     if (err) return <ErrorMessage err={err} />;
     if (isLoading) return <p>loading...</p>;
     return (
       <div className="articlesListMainLayout">
-        <h1> Articles</h1>
+        <h1>
+          Articles page {page} out of {maxPage}
+        </h1>
+        <button
+          className="button-global-style"
+          disabled={articles.length < 1}
+          onClick={() => this.changePage(1)}
+        >
+          Next Page
+        </button>
+        <button
+          className="button-global-style"
+          disabled={page === 1}
+          onClick={() => this.changePage(-1)}
+        >
+          Previous page
+        </button>
+
         <SearchBar
           articles={articles}
           changeSortBy={this.changeSortBy}
           changeOrder={this.changeOrder}
         ></SearchBar>
+
         {articles.map(article => {
           return <ArticleCard key={article.article_id} article={article} />;
         })}

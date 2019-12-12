@@ -5,7 +5,7 @@
   display: flex;
   margin: 15px 15px;
   border-radius: 10px;
-  background-color: #333333;
+  background-color: #222222;
 }
 
 .users-card:hover {
@@ -17,7 +17,7 @@
 
 .users-image {
   font-family: inherit;
-  color: white;
+  color: whitesmoke;
   width: auto;
   font-weight: bold;
   padding: 10px;
@@ -27,5 +27,5 @@
 }
 
 .users-name {
-  color: white;
+  color: whitesmoke;
 }

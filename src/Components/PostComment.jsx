@@ -41,7 +41,7 @@ export default class PostComment extends Component {
           onChange={this.handleChange}
         />
 
-        <button className="postCommentButton">Submit comment</button>
+        <button className="button-global-style">Submit comment</button>
       </form>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./Css styles/Searchbar.css";
 class SearchBar extends Component {
   handleChange = event => {
     const { value } = event.target;
@@ -31,7 +31,7 @@ class SearchBar extends Component {
           </select>
         </label>
         <label htmlFor="order">
-          order :{" "}
+          order :
           <select onChange={this.handleChange} name="order">
             <option className="formContent" value="asc">
               ascending

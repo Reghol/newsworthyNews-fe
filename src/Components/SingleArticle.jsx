@@ -133,7 +133,10 @@ class SingleArticle extends Component {
         </div>
 
         <div className="comments-wrapper">
-          <button onClick={this.handleClickShowHide}>
+          <button
+            className="button-global-style"
+            onClick={this.handleClickShowHide}
+          >
             {isVisible ? "Hide comments" : "Show comments"}
           </button>
           {isVisible

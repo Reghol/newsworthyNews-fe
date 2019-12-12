@@ -20,6 +20,7 @@ export default class Votes extends Component {
         <p>Votes: {this.props.votes + voteChange}</p>
 
         <button
+          className="button-global-style"
           disabled={voteChange === 1}
           size="sm"
           color="primary"
@@ -30,6 +31,7 @@ export default class Votes extends Component {
           Concur
         </button>
         <button
+          className="button-global-style"
           disabled={voteChange === -1}
           size="sm"
           color="secondary"
