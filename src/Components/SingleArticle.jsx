@@ -79,7 +79,17 @@ class SingleArticle extends Component {
     if (isLoading)
       return (
         <>
-          <p>Loading...</p>
+          <div className="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          {/* <p className="lds-roller">Loading...</p> */}
         </>
       );
     return (

@@ -19,7 +19,16 @@ export default class UsersList extends Component {
     if (isLoading)
       return (
         <div>
-          <p>Loading...</p>
+          <div className="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
       );
 

@@ -23,6 +23,7 @@
 }
 
 .login-container button {
+  font: "Lato", sans-serif;
   color: #494949 !important;
   text-transform: uppercase;
   text-decoration: none;
@@ -34,6 +35,7 @@
 }
 
 .login-container button:hover {
+  font: "Lato", sans-serif;
   color: #ffffff !important;
   background: #f6b93b;
   border-color: #f6b93b !important;

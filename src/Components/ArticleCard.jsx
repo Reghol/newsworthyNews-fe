@@ -18,14 +18,11 @@ const ArticleCard = ({ article, username }) => {
         </div>
 
         <div className="article-stats">
-          {/* <p>Votes: {article.votes}</p> */}
-
           <p>Comments: {article.comment_count}</p>
-
-          <p className="article-date">
-            {new Date(article.created_at).toLocaleString()}
-          </p>
         </div>
+        <p className="article-date">
+          {new Date(article.created_at).toLocaleString()}
+        </p>
         <Votes
           type="articles"
           id={article.article_id}

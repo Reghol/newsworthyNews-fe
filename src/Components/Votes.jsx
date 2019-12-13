@@ -28,7 +28,7 @@ export default class Votes extends Component {
             this.handleClick(1);
           }}
         >
-          Concur
+          Yay
         </button>
         <button
           className="button-global-style"
@@ -39,7 +39,7 @@ export default class Votes extends Component {
             this.handleClick(-1);
           }}
         >
-          Condemn
+          Nay
         </button>
       </div>
     );

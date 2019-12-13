@@ -45,16 +45,18 @@ class Login extends React.Component {
         <h3>Login</h3>
         <form className="login-container form" onSubmit={this.handleSubmit}>
           <label htmlFor="username">
-            <input
-              className="login-container input"
-              id="username"
-              type="text"
-              onChange={this.handleChange}
-              placeholder="username"
-              autoComplete="off"
-              required
-              value="jessjelly"
-            />
+            <div className="dropdown">
+              <input
+                className="login-container input"
+                id="username"
+                type="text"
+                onChange={this.handleChange}
+                placeholder="username"
+                autoComplete="off"
+                required
+                value="jessjelly"
+              />
+            </div>
           </label>
           <h4>Password</h4>
           <label htmlFor="password">

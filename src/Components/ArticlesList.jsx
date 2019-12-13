@@ -71,7 +71,19 @@ class ArticlesList extends Component {
   render() {
     const { articles, err, isLoading, page, maxPage } = this.state;
     if (err) return <ErrorMessage err={err} />;
-    if (isLoading) return <p>loading...</p>;
+    if (isLoading)
+      return (
+        <div className="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      );
     return (
       <div className="articlesListMainLayout">
         <h1>
