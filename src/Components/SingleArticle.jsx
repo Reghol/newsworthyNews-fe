@@ -4,6 +4,7 @@ import CommentCard from "./CommentCard";
 import "./Css styles/SingleArticle.css";
 import PostComment from "./PostComment";
 import ErrorMessage from "./ErrorMessage";
+import Votes from "./Votes";
 
 class SingleArticle extends Component {
   state = {
@@ -88,7 +89,7 @@ class SingleArticle extends Component {
             <div className=".img-fluid">
               {article.topic === "cooking" && (
                 <img
-                  style={{ border: "solid", height: "100%", width: "100%" }}
+                  style={{ height: "100%", width: "100%" }}
                   src={
                     "https://upload.wikimedia.org/wikipedia/commons/5/51/Food-pot-kitchen-cooking_%2823957429659%29.jpg"
                   }
@@ -120,6 +121,12 @@ class SingleArticle extends Component {
           <div className="articles-body">
             <p>{article.body}</p>
           </div>
+          <Votes
+            type="articles"
+            id={article.article_id}
+            votes={article.votes}
+            username={username}
+          />
         </div>
 
         <div className="post-commentWrapper">

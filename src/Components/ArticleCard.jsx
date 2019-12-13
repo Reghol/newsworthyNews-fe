@@ -1,29 +1,39 @@
 import React from "react";
 import { Link } from "@reach/router";
 import "./Css styles/ArticleCard.css";
-const ArticleCard = ({ article }) => {
+import Votes from "./Votes";
+const ArticleCard = ({ article, username }) => {
   return (
-    <Link
-      className="article-card"
-      to={`/articles/${article.article_id}`}
-      key={article.article_id}
-    >
+    <div className="article-card">
       <div className="article-topic">
         <p>{article.topic}</p>
       </div>
 
       <div className="article-details">
         <div className="article-title">
-          <h4>{article.title}</h4>
+          <Link to={`/articles/${article.article_id}`} key={article.article_id}>
+            <h4>{article.title}</h4>
+          </Link>
+          <p>Author: {article.author}</p>
         </div>
-        <p>Author: {article.author}</p>
 
         <div className="article-stats">
-          <p>Votes: {article.votes}</p>
+          {/* <p>Votes: {article.votes}</p> */}
+
           <p>Comments: {article.comment_count}</p>
-          <p>{new Date(article.created_at).toLocaleString()}</p>
+
+          <p className="article-date">
+            {new Date(article.created_at).toLocaleString()}
+          </p>
         </div>
+        <Votes
+          type="articles"
+          id={article.article_id}
+          votes={article.votes}
+          username={username}
+        />
       </div>
+
       <div className="article-picture">
         <div className=".img-fluid">
           {article.topic === "cooking" && (
@@ -55,7 +65,7 @@ const ArticleCard = ({ article }) => {
           )}
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

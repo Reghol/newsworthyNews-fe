@@ -4,12 +4,13 @@
   color: rgb(199, 167, 167);
   display: flex;
   margin: 15px 15px;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: #222222;
+  text-decoration: none;
 }
 
 .users-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.04);
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s;
@@ -24,8 +25,10 @@
   background-color: #9aa87f;
   border-right: 1px solid rgb(171, 171, 171);
   margin-left: auto;
+  text-decoration: none;
 }
 
 .users-name {
   color: whitesmoke;
+  text-decoration: none;
 }

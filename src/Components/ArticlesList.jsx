@@ -14,7 +14,7 @@ class ArticlesList extends Component {
     err: null,
     page: 1,
     limit: 10,
-    maxPage: Infinity
+    maxPage: 5
   };
 
   componentDidMount() {
@@ -26,9 +26,7 @@ class ArticlesList extends Component {
 
   componentDidUpdate = (prevProps, prevState) => {
     const { page, sort_by, order, limit } = this.state;
-    if (this.props !== prevProps) {
-      this.fetchArticles();
-    }
+
     if (
       prevState.page !== page ||
       prevState.sort_by !== sort_by ||
@@ -79,27 +77,32 @@ class ArticlesList extends Component {
         <h1>
           Articles page {page} out of {maxPage}
         </h1>
-        <button
-          className="button-global-style"
-          disabled={articles.length < 1}
-          onClick={() => this.changePage(1)}
-        >
-          Next Page
-        </button>
-        <button
-          className="button-global-style"
-          disabled={page === 1}
-          onClick={() => this.changePage(-1)}
-        >
-          Previous page
-        </button>
+        <div className="searchBarWrapper">
+          <button
+            className="button-global-style"
+            disabled={articles.length < 1}
+            onClick={() => this.changePage(1)}
+          >
+            Next Page
+          </button>
+          <div className="divider"></div>
 
-        <SearchBar
-          articles={articles}
-          changeSortBy={this.changeSortBy}
-          changeOrder={this.changeOrder}
-        ></SearchBar>
+          <button
+            className="button-global-style"
+            disabled={page === 1}
+            onClick={() => this.changePage(-1)}
+          >
+            Previous page
+          </button>
 
+          <div className="divider"></div>
+
+          <SearchBar
+            articles={articles}
+            changeSortBy={this.changeSortBy}
+            changeOrder={this.changeOrder}
+          ></SearchBar>
+        </div>
         {articles.map(article => {
           return <ArticleCard key={article.article_id} article={article} />;
         })}

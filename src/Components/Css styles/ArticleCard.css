@@ -5,13 +5,14 @@
   display: flex;
   flex-direction: row;
   margin: 15px 15px;
+  padding: 15px;
   border-radius: 10px;
   background-color: #222222;
   text-decoration: none;
 }
 
 .article-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.04);
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s;
@@ -35,4 +36,20 @@
   .article-picture {
     display: none;
   }
+}
+
+.article-details {
+  display: flex;
+  flex-direction: column;
+  border-top-right-radius: 9px;
+  border-bottom-right-radius: 9px;
+  width: 100%;
+}
+
+.article-stats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-bottom-right-radius: 10px;
 }

@@ -28,9 +28,12 @@ export default class UsersList extends Component {
         {users.map(user => {
           return (
             <main className="users-card" key={user.username}>
-              <Link to={`/users/${user.username}`}>
+              <Link
+                style={{ textDecoration: "none" }}
+                to={`/users/${user.username}`}
+              >
                 <h3 className="users-name">
-                  {user.name} - <i>{user.username}</i>
+                  {user.name} - <i className="users-name">{user.username}</i>
                 </h3>
               </Link>
               <img
