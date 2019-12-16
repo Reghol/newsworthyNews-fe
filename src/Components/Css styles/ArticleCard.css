@@ -58,3 +58,13 @@
   justify-content: flex-start;
   border-bottom-right-radius: 10px;
 }
+
+.pagination {
+  display: flex;
+  align-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  text-align: center;
+
+  font-weight: bold;
+}

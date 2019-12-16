@@ -18,7 +18,22 @@ class SingleUser extends Component {
   }
 
   render() {
-    const { username, name, avatar_url } = this.state;
+    const { username, name, avatar_url, isLoading } = this.state;
+    if (isLoading)
+      return (
+        <div>
+          <div className="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      );
     return (
       <div>
         <p>Username: {username}</p>

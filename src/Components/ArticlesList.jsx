@@ -55,8 +55,9 @@ class ArticlesList extends Component {
 
     api
       .getAllArticles(topic, sort_by, page, order, limit)
-      .then(({ articles }) => {
-        this.setState({ articles, isLoading: false });
+      .then(({ articles, total_count }) => {
+        let count = Math.ceil(total_count / 10);
+        this.setState({ articles, maxPage: count, isLoading: false });
       })
       .catch(err => {
         this.setState({
@@ -70,6 +71,7 @@ class ArticlesList extends Component {
 
   render() {
     const { articles, err, isLoading, page, maxPage } = this.state;
+
     if (err) return <ErrorMessage err={err} />;
     if (isLoading)
       return (
@@ -86,7 +88,7 @@ class ArticlesList extends Component {
       );
     return (
       <div className="articlesListMainLayout">
-        <h1>
+        <h1 className="pagination">
           Articles page {page} out of {maxPage}
         </h1>
         <div className="searchBarWrapper">

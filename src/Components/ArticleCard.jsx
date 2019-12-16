@@ -27,6 +27,7 @@ const ArticleCard = ({ article, username }) => {
         <p className="article-date">
           {new Date(article.created_at).toLocaleString()}
         </p>
+
         <Votes
           type="articles"
           id={article.article_id}

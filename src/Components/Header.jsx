@@ -84,10 +84,12 @@ class Header extends React.Component {
             <FontAwesomeIcon icon={faUserAstronaut} />
             <i className="e">Users</i>
           </Link>
-          <p onClick={this.clickLogin} className="logout">
-            <FontAwesomeIcon icon={faSignInAlt} />
-            Login
-          </p>
+          {!username && (
+            <p onClick={this.clickLogin} className="logout">
+              <FontAwesomeIcon icon={faSignInAlt} />
+              Login
+            </p>
+          )}
           {username && (
             <p className="logout" onClick={this.clickLogout}>
               {username} logout
