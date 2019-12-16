@@ -1,7 +1,14 @@
 .App {
-  text-decoration: none !important;
+  text-decoration: none;
+  color: "f6b93b";
 }
 
+a {
+  color: #fff;
+}
+a:hover {
+  color: #f6b93b;
+}
 .articlesListMainLayout {
   padding: 20px 0;
 }
@@ -24,6 +31,12 @@
 .main {
   flex: 6;
 }
+
+.button-wrapper {
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+}
 .button-global-style {
   font-family: inherit;
   color: #494949 !important;
@@ -32,7 +45,7 @@
   background: #ffffff;
   padding: 10px;
   border: 4px solid #494949 !important;
-  display: inline-block;
+
   transition: all 0.4s ease 0s;
 }
 .button-global-style:hover {

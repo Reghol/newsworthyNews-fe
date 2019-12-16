@@ -2,7 +2,7 @@
 
 .article-card {
   font-family: "Lato", sans-serif;
-  color: rgb(199, 167, 167);
+  color: whitesmoke;
   display: flex;
   flex-direction: row;
   margin: 15px 15px;
@@ -20,13 +20,17 @@
 }
 
 .article-topic {
+  margin-right: 10px;
   font-family: inherit;
   color: whitesmoke;
   width: auto;
   font-weight: bold;
   padding: 10px;
-  background-color: #f6b93b;
-  border-right: 1px solid rgb(171, 171, 171);
+  background-color: #249095;
+  border: 1px solid rgb(171, 171, 171);
+}
+.article-topic :hover {
+  color: #19378a;
 }
 .article-picture {
   width: 20%;

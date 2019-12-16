@@ -11,8 +11,12 @@ const ArticleCard = ({ article, username }) => {
 
       <div className="article-details">
         <div className="article-title">
-          <Link to={`/articles/${article.article_id}`} key={article.article_id}>
-            <h4>{article.title}</h4>
+          <Link
+            style={{ textDecoration: "none", color: "ffffff" }}
+            to={`/articles/${article.article_id}`}
+            key={article.article_id}
+          >
+            <h4 className="topic-title">{article.title}</h4>
           </Link>
           <p>Author: {article.author}</p>
         </div>

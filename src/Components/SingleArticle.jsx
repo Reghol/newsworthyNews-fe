@@ -89,7 +89,6 @@ class SingleArticle extends Component {
             <div></div>
             <div></div>
           </div>
-          {/* <p className="lds-roller">Loading...</p> */}
         </>
       );
     return (

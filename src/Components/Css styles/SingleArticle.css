@@ -7,6 +7,9 @@
   padding: 5px;
   color: aliceblue;
   background-color: #222222;
+  margin-left: 20px;
+  border-radius: 25px;
+  padding: 5px;
 }
 
 .articles-body {
@@ -15,7 +18,7 @@
 }
 
 .article-header {
-  border: 5px solid rgb(147, 175, 223);
+  border: 5px solid #249095;
   margin: 7px;
 }
 
@@ -25,7 +28,7 @@
   padding: 5px;
   color: aliceblue;
   background-color: #222222;
-  border: 5px solid rgb(147, 175, 223);
+  border: 5px solid #249095;
   resize: both;
   overflow: auto;
   padding: 5px;

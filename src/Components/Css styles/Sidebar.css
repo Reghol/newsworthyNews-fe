@@ -25,5 +25,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 4px;
+  margin: 10px;
+}
+.topic-title {
+  font-size: xx-large;
 }
