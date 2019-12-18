@@ -147,14 +147,13 @@ class SingleArticle extends Component {
             ></PostComment>
           ) : null}
         </div>
-
+        <button
+          className="button-global-style"
+          onClick={this.handleClickShowHide}
+        >
+          {isVisible ? "Hide comments" : "Show comments"}
+        </button>
         <div className="comments-wrapper">
-          <button
-            className="button-global-style"
-            onClick={this.handleClickShowHide}
-          >
-            {isVisible ? "Hide comments" : "Show comments"}
-          </button>
           {isVisible
             ? comments.map(comment => {
                 return (

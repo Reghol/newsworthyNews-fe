@@ -26,8 +26,9 @@ class ArticlesList extends Component {
 
   componentDidUpdate = (prevProps, prevState) => {
     const { page, sort_by, order, limit } = this.state;
-
+    const { topic } = this.props;
     if (
+      prevProps.topic !== topic ||
       prevState.page !== page ||
       prevState.sort_by !== sort_by ||
       prevState.order !== order ||
@@ -94,7 +95,7 @@ class ArticlesList extends Component {
         <div className="searchBarWrapper">
           <button
             className="button-global-style"
-            disabled={articles.length < 1}
+            disabled={page >= maxPage}
             onClick={() => this.changePage(1)}
           >
             Next Page

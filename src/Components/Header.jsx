@@ -81,8 +81,10 @@ class Header extends React.Component {
             Homepage
           </Link>
           <Link to="/users" className="usersHeader">
-            <FontAwesomeIcon icon={faUserAstronaut} />
-            <i className="e">Users</i>
+            <p>
+              <FontAwesomeIcon icon={faUserAstronaut} />
+              Users
+            </p>
           </Link>
           {!username && (
             <p onClick={this.clickLogin} className="logout">

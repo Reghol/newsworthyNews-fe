@@ -60,10 +60,6 @@
 }
 
 .pagination {
-  display: flex;
-  align-content: center;
-  align-items: flex-end;
-  flex-wrap: wrap;
   text-align: center;
 
   font-weight: bold;
