@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import * as api from "../Utils/api";
+import ArticlesList from "./ArticlesList";
+import "./Css styles/SingleUser.css";
+
 class SingleUser extends Component {
   state = {
     username: null,
@@ -35,17 +38,16 @@ class SingleUser extends Component {
         </div>
       );
     return (
-      <div>
-        <p>Username: {username}</p>
-        <p>Name: {name}</p>
-        <p>Avatar:</p>
-        <img
-          alt="bla bla bla"
-          style={{ height: "50%", width: "50%" }}
-          src={avatar_url}
-        ></img>
-        <div>Articles</div>
-      </div>
+      <>
+        <div className="singleUser">
+          <p>Username: {username}</p>
+          <p>Name: {name}</p>
+          <img className="picture" alt="bla bla bla" src={avatar_url}></img>
+          <p>User Profile</p>
+        </div>
+
+        <ArticlesList author={username}></ArticlesList>
+      </>
     );
   }
 }

@@ -14,7 +14,8 @@ class ArticlesList extends Component {
     err: null,
     page: 1,
     limit: 10,
-    maxPage: 5
+    maxPage: 5,
+    author: null
   };
 
   componentDidMount() {
@@ -51,11 +52,11 @@ class ArticlesList extends Component {
     });
   };
   fetchArticles = () => {
-    const { topic } = this.props;
+    const { topic, author } = this.props;
     let { sort_by, order, page, limit } = this.state;
 
     api
-      .getAllArticles(topic, sort_by, page, order, limit)
+      .getAllArticles(topic, sort_by, page, order, limit, author)
       .then(({ articles, total_count }) => {
         let count = Math.ceil(total_count / 10);
         this.setState({ articles, maxPage: count, isLoading: false });
@@ -72,7 +73,7 @@ class ArticlesList extends Component {
 
   render() {
     const { articles, err, isLoading, page, maxPage } = this.state;
-
+    const { author } = this.props;
     if (err) return <ErrorMessage err={err} />;
     if (isLoading)
       return (
@@ -89,9 +90,16 @@ class ArticlesList extends Component {
       );
     return (
       <div className="articlesListMainLayout">
-        <h1 className="pagination">
-          Articles page {page} out of {maxPage}
-        </h1>
+        {!author && (
+          <h1 className="pagination">
+            Articles page {page} out of {maxPage}
+          </h1>
+        )}
+        {author && (
+          <h1 className="pagination">
+            Articles by {author}, page {page} out of {maxPage}
+          </h1>
+        )}
         <div className="searchBarWrapper">
           <button
             className="button-global-style"

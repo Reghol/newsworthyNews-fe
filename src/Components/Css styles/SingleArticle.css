@@ -24,15 +24,16 @@
 }
 
 .post-commentWrapper {
-  margin: 10px;
-  width: 96%;
+  width: 100%;
+  margin: 7px;
+
   padding: 5px;
   color: aliceblue;
+  box-sizing: border-box;
   background-color: #222222;
   border: 5px solid #249095;
   resize: both;
   overflow: auto;
-  padding: 5px;
 }
 .mytext {
   width: 99%;

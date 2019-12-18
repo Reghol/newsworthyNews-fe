@@ -1,0 +1,18 @@
+.singleUser {
+  display: flex;
+  align-content: center;
+  flex-direction: column-reverse;
+  color: whitesmoke;
+  text-decoration: none;
+  padding: 5px;
+  background-color: #222222;
+  margin: 6px;
+  border-radius: 25px;
+}
+
+.picture {
+  display: flex;
+  align-self: center;
+  width: 20vh;
+  height: 20vh;
+}

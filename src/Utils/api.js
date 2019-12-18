@@ -1,12 +1,19 @@
 import axios from "axios";
 const baseURL = "https://newsworthy-news-nc.herokuapp.com/api";
 
-export const getAllArticles = async (topic, sort_by, page, order, limit) => {
+export const getAllArticles = async (
+  topic,
+  sort_by,
+  page,
+  order,
+  limit,
+  author
+) => {
   return await axios
     .get(`${baseURL}/articles`, {
       params: {
         topic,
-        author: null,
+        author,
         sort_by: sort_by,
         p: page,
         order,
