@@ -1,6 +1,7 @@
 .filterForm {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   color: #494949 !important;
   text-transform: uppercase;
   text-decoration: none;
@@ -8,6 +9,7 @@
   padding: 7px;
   border: 4px solid #494949 !important;
   transition: all 0.4s ease 0s;
+  width: 100%;
 }
 .filterForm:hover {
   color: #ffffff !important;
@@ -24,5 +26,21 @@
 .searchBarWrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.formContent {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .searchBarWrapper {
+    flex-grow: inherit;
+    display: flex;
+    min-width: fit-content;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: nowrap;
+  }
 }

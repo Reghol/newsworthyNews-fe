@@ -32,7 +32,7 @@ class SearchBar extends Component {
             </select>
           </label>
         </form>
-        <form className="filterForm">
+        <div className="filterForm">
           <label htmlFor="order">
             Order :
             <select
@@ -48,7 +48,7 @@ class SearchBar extends Component {
               </option>
             </select>
           </label>
-        </form>
+        </div>
       </>
     );
   }

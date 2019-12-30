@@ -102,6 +102,7 @@ class ArticlesList extends Component {
         )}
         <div className="searchBarWrapper">
           <button
+            style={{ width: "100%" }}
             className="button-global-style"
             disabled={page >= maxPage}
             onClick={() => this.changePage(1)}
@@ -111,6 +112,7 @@ class ArticlesList extends Component {
           <div className="divider"></div>
 
           <button
+            style={{ width: "100%" }}
             className="button-global-style"
             disabled={page === 1}
             onClick={() => this.changePage(-1)}
@@ -121,6 +123,7 @@ class ArticlesList extends Component {
           <div className="divider"></div>
 
           <SearchBar
+            style={{ width: "100%" }}
             articles={articles}
             changeSortBy={this.changeSortBy}
             changeOrder={this.changeOrder}
